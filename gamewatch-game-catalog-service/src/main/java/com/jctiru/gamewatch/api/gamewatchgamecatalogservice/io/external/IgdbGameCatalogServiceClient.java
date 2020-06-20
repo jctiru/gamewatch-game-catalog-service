@@ -12,6 +12,6 @@ import com.jctiru.gamewatch.api.gamewatchgamecatalogservice.io.external.model.re
 public interface IgdbGameCatalogServiceClient {
 
 	@PostMapping
-	public List<GameOverview> getPopularGamesNow(@RequestBody String igdbParams);
+	public List<GameOverview> getGamesList(@RequestBody String igdbParams);
 
 }
