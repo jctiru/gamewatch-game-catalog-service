@@ -21,10 +21,14 @@ public class GameCatalogServiceImpl implements GameCatalogService {
 
 	@Override
 	public List<GameOverview> getPopularGamesNow() {
-		System.out.println(igdbGameCatalogParamsStringFactory.getPopularGamesNowIgdbParamsString());
-
 		return igdbGameCatalogServiceClient
 				.getPopularGamesNow(igdbGameCatalogParamsStringFactory.getPopularGamesNowIgdbParamsString());
+	}
+
+	@Override
+	public List<GameOverview> getMostAnticipated() {
+		return igdbGameCatalogServiceClient
+				.getPopularGamesNow(igdbGameCatalogParamsStringFactory.getMostAnticipatedIgdbParamsString());
 	}
 
 }

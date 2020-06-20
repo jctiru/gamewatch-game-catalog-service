@@ -8,4 +8,6 @@ public interface GameCatalogService {
 
 	List<GameOverview> getPopularGamesNow();
 
+	List<GameOverview> getMostAnticipated();
+
 }
