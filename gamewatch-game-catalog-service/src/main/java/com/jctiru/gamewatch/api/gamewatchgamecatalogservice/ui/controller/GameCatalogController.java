@@ -27,4 +27,9 @@ public class GameCatalogController {
 		return gameCatalogService.getMostAnticipated();
 	}
 
+	@GetMapping("/recently-released")
+	public List<GameOverview> getRecentlyReleased() {
+		return gameCatalogService.getRecentlyReleased();
+	}
+
 }
