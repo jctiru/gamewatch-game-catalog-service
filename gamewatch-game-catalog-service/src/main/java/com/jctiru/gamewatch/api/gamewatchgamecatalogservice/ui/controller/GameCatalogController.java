@@ -22,4 +22,9 @@ public class GameCatalogController {
 		return gameCatalogService.getPopularGamesNow();
 	}
 
+	@GetMapping("/most-anticipated")
+	public List<GameOverview> getMostAnticipated() {
+		return gameCatalogService.getMostAnticipated();
+	}
+
 }
