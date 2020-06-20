@@ -31,4 +31,10 @@ public class GameCatalogServiceImpl implements GameCatalogService {
 				.getGamesList(igdbGameCatalogParamsStringFactory.getMostAnticipatedIgdbParamsString());
 	}
 
+	@Override
+	public List<GameOverview> getRecentlyReleased() {
+		return igdbGameCatalogServiceClient
+				.getGamesList(igdbGameCatalogParamsStringFactory.getRecentlyReleasedIgdbParamsString());
+	}
+
 }

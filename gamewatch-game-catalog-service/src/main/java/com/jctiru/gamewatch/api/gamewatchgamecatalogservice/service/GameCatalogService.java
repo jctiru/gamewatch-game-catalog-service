@@ -10,4 +10,6 @@ public interface GameCatalogService {
 
 	List<GameOverview> getMostAnticipated();
 
+	List<GameOverview> getRecentlyReleased();
+
 }
