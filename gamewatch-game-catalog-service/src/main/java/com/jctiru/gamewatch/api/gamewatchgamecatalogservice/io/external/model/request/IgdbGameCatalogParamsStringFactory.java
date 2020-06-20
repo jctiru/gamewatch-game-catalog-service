@@ -58,4 +58,28 @@ public class IgdbGameCatalogParamsStringFactory {
 		return params.getParamsString();
 	}
 
+	public String getRecentlyReleasedIgdbParamsString() {
+		IgdbGameCatalogParams params = new IgdbGameCatalogParams();
+
+		List<String> fields = new ArrayList<>();
+		fields.add("name");
+		fields.add("cover.url");
+		fields.add("cover.url");
+		fields.add("first_release_date");
+		fields.add("genres.name");
+		fields.add("slug");
+
+		List<String> conditions = new ArrayList<>();
+		conditions.add(
+				"first_release_date > " + Instant.now().atZone(ZoneId.systemDefault()).minusMonths(1).toEpochSecond());
+		conditions.add("first_release_date < " + Long.toString(Instant.now().getEpochSecond()));
+
+		params.setFields(fields);
+		params.setConditions(conditions);
+		params.setSort("first_release_date desc");
+		params.setLimit(20);
+
+		return params.getParamsString();
+	}
+
 }
