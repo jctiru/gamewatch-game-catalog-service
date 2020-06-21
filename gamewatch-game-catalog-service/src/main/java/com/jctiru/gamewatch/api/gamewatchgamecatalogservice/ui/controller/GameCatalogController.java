@@ -32,4 +32,9 @@ public class GameCatalogController {
 		return gameCatalogService.getRecentlyReleased();
 	}
 
+	@GetMapping("/coming-soon")
+	public List<GameOverview> getComingSoon() {
+		return gameCatalogService.getComingSoon();
+	}
+
 }
