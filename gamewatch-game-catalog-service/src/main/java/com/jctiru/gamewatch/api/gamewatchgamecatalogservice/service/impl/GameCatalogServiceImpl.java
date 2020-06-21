@@ -37,4 +37,10 @@ public class GameCatalogServiceImpl implements GameCatalogService {
 				.getGamesList(igdbGameCatalogParamsStringFactory.getRecentlyReleasedIgdbParamsString());
 	}
 
+	@Override
+	public List<GameOverview> getComingSoon() {
+		return igdbGameCatalogServiceClient
+				.getGamesList(igdbGameCatalogParamsStringFactory.getComingSoonIgdbParamsString());
+	}
+
 }

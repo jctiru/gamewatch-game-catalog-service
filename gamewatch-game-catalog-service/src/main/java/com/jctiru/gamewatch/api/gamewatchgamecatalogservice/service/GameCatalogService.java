@@ -12,4 +12,6 @@ public interface GameCatalogService {
 
 	List<GameOverview> getRecentlyReleased();
 
+	List<GameOverview> getComingSoon();
+
 }
