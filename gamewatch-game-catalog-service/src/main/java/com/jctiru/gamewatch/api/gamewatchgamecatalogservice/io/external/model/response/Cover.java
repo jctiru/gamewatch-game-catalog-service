@@ -2,6 +2,7 @@ package com.jctiru.gamewatch.api.gamewatchgamecatalogservice.io.external.model.r
 
 public class Cover {
 	private long id;
+	private String image_id;
 	private String url;
 
 	public long getId() {
@@ -10,6 +11,14 @@ public class Cover {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public String getImage_id() {
+		return image_id;
+	}
+
+	public void setImage_id(String image_id) {
+		this.image_id = image_id;
 	}
 
 	public String getUrl() {

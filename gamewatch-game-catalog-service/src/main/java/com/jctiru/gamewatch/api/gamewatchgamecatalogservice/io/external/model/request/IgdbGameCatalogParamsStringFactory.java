@@ -75,6 +75,7 @@ public class IgdbGameCatalogParamsStringFactory {
 	private static List<String> getGameOverviewFieldParams() {
 		List<String> fields = new ArrayList<>();
 		fields.add("name");
+		fields.add("cover.image_id");
 		fields.add("cover.url");
 		fields.add("first_release_date");
 		fields.add("genres.name");
