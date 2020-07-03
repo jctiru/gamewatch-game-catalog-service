@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.jctiru.gamewatch.api.gamewatchgamecatalogservice.io.external.IgdbGameCatalogServiceClient;
 import com.jctiru.gamewatch.api.gamewatchgamecatalogservice.io.external.model.request.IgdbGameCatalogParamsStringFactory;
+import com.jctiru.gamewatch.api.gamewatchgamecatalogservice.io.external.model.response.GameDetails;
 import com.jctiru.gamewatch.api.gamewatchgamecatalogservice.io.external.model.response.GameOverview;
 import com.jctiru.gamewatch.api.gamewatchgamecatalogservice.service.GameCatalogService;
 
@@ -41,6 +42,14 @@ public class GameCatalogServiceImpl implements GameCatalogService {
 	public List<GameOverview> getComingSoon() {
 		return igdbGameCatalogServiceClient
 				.getGamesList(igdbGameCatalogParamsStringFactory.getComingSoonIgdbParamsString());
+	}
+
+	@Override
+	public GameDetails getGameDetails(String gameSlug) {
+		List<GameDetails> pseudoList = igdbGameCatalogServiceClient
+				.getGameDetails(igdbGameCatalogParamsStringFactory.getGameDetailsIgdbParamsString(gameSlug));
+
+		return pseudoList.isEmpty() ? null : pseudoList.get(0);
 	}
 
 }
