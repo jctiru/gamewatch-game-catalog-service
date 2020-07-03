@@ -84,4 +84,43 @@ public class IgdbGameCatalogParamsStringFactory {
 		return fields;
 	}
 
+	public String getGameDetailsIgdbParamsString(String gameSlug) {
+		IgdbGameCatalogParams params = new IgdbGameCatalogParams();
+
+		List<String> fields = new ArrayList<>();
+		fields.add("name");
+		fields.add("slug");
+		fields.add("first_release_date");
+		fields.add("summary");
+		fields.add("storyline");
+		fields.add("cover.image_id");
+		fields.add("cover.url");
+		fields.add("genres.name");
+		fields.add("themes.name");
+		fields.add("screenshots.image_id");
+		fields.add("screenshots.url");
+		fields.add("artworks.image_id");
+		fields.add("artworks.url");
+		fields.add("videos.name");
+		fields.add("videos.video_id");
+		fields.add("platforms.name");
+		fields.add("involved_companies.company.name");
+		fields.add("involved_companies.developer");
+		fields.add("involved_companies.porting");
+		fields.add("involved_companies.publisher");
+		fields.add("involved_companies.supporting");
+		fields.add("similar_games.cover.image_id");
+		fields.add("similar_games.cover.url");
+		fields.add("similar_games.name");
+		fields.add("similar_games.slug");
+
+		List<String> conditions = new ArrayList<>();
+		conditions.add("slug = \"" + gameSlug + "\"");
+
+		params.setFields(fields);
+		params.setConditions(conditions);
+
+		return params.getParamsString();
+	}
+
 }
