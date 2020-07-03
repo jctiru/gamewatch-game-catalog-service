@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jctiru.gamewatch.api.gamewatchgamecatalogservice.io.external.model.response.GameDetails;
 import com.jctiru.gamewatch.api.gamewatchgamecatalogservice.io.external.model.response.GameOverview;
 import com.jctiru.gamewatch.api.gamewatchgamecatalogservice.service.GameCatalogService;
 
@@ -35,6 +37,11 @@ public class GameCatalogController {
 	@GetMapping("/coming-soon")
 	public List<GameOverview> getComingSoon() {
 		return gameCatalogService.getComingSoon();
+	}
+
+	@GetMapping("/games/{gameSlug}")
+	public GameDetails getGameDetails(@PathVariable String gameSlug) {
+		return gameCatalogService.getGameDetails(gameSlug);
 	}
 
 }
