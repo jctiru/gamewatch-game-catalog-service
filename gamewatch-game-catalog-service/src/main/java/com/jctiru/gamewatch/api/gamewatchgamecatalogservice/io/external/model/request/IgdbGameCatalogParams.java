@@ -7,7 +7,7 @@ public class IgdbGameCatalogParams {
 	private List<String> fields;
 	private List<String> conditions;
 	private String sort;
-	private int limit;
+	private Integer limit;
 
 	public List<String> getFields() {
 		return fields;
@@ -44,8 +44,8 @@ public class IgdbGameCatalogParams {
 	public String getParamsString() {
 		String fieldParamsString = "fields " + String.join(", ", this.fields) + ";";
 		String conditionParamsString = "where " + String.join(" & ", this.conditions) + ";";
-		String sortParamString = "sort " + this.sort + ";";
-		String limitParamString = "limit " + Integer.toString(this.limit) + ";";
+		String sortParamString = this.sort != null ? "sort " + this.sort + ";" : "";
+		String limitParamString = this.limit != null ? "limit " + Integer.toString(this.limit) + ";" : "";
 
 		return String.join(" ", fieldParamsString, conditionParamsString, sortParamString, limitParamString);
 	}
