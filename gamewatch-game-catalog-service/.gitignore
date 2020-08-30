@@ -29,3 +29,5 @@ build/
 
 ### VS Code ###
 .vscode/
+
+/jprofiler_agent_linux-x86_11_1_2.tar.gz
