@@ -1,0 +1,9 @@
+FROM adoptopenjdk/openjdk11-openj9:alpine-jre
+ARG JAR_FILE=target/gamewatch-game-catalog-service-0.0.1-SNAPSHOT.jar
+ARG PROFILER_AGENT_ZIP=jprofiler_agent_linux-x86_11_1_2.tar.gz
+WORKDIR /opt/app
+COPY ${JAR_FILE} app.jar
+COPY ${PROFILER_AGENT_ZIP} profiler-agent.tar.gz
+RUN tar -xzf profiler-agent.tar.gz
+ENTRYPOINT [ "java", "-Xsoftmx32m", "-Xmx48m", "-Xss256k", "-Xcodecachetotal10m", "-XX:IdleTuningMinIdleWaitTime=5", "-Xtune:virtualized", "-XX:+CompactStrings", "-Xshareclasses:cacheDir=/opt/app/jvm/openj9/shareclasses", "-Xscmx512m", "-agentpath:/opt/app/jprofiler11/bin/linux-x64/libjprofilerti.so=port=8849", "-jar", "app.jar" ]
+EXPOSE 8081 8849
