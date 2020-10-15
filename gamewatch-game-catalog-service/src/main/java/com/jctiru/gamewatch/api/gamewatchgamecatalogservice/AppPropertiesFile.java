@@ -14,8 +14,12 @@ public class AppPropertiesFile {
 		this.env = env;
 	}
 
-	public String getIgdbApiKey() {
-		return env.getProperty("igdb.api.key");
+	public String getTwitchClientId() {
+		return env.getProperty("twitch.client.id");
+	}
+
+	public String getTwitchClientSecret() {
+		return env.getProperty("twitch.client.secret");
 	}
 
 }
