@@ -17,11 +17,11 @@ public class IgdbGameCatalogParamsStringFactory {
 		conditions.add(
 				"first_release_date > " + Instant.now().atZone(ZoneId.systemDefault()).minusMonths(6).toEpochSecond());
 		conditions.add("first_release_date < " + Long.toString(Instant.now().getEpochSecond()));
-		conditions.add("pulse_count > 1");
+		conditions.add("follows != null");
 
 		params.setFields(IgdbGameCatalogParamsStringFactory.getGameOverviewFieldParams());
 		params.setConditions(conditions);
-		params.setSort("pulse_count desc");
+		params.setSort("follows desc");
 		params.setLimit(20);
 
 		return params.getParamsString();
@@ -32,11 +32,11 @@ public class IgdbGameCatalogParamsStringFactory {
 
 		List<String> conditions = new ArrayList<>();
 		conditions.add("first_release_date > " + Long.toString(Instant.now().getEpochSecond()));
-		conditions.add("pulse_count > 1");
+		conditions.add("hypes != null");
 
 		params.setFields(IgdbGameCatalogParamsStringFactory.getGameOverviewFieldParams());
 		params.setConditions(conditions);
-		params.setSort("pulse_count desc");
+		params.setSort("hypes desc");
 		params.setLimit(20);
 
 		return params.getParamsString();
