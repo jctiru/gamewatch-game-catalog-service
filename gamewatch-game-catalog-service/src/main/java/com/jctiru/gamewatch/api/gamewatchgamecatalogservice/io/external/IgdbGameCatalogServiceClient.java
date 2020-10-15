@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.jctiru.gamewatch.api.gamewatchgamecatalogservice.io.external.model.response.GameDetails;
 import com.jctiru.gamewatch.api.gamewatchgamecatalogservice.io.external.model.response.GameOverview;
 
-@FeignClient(name = "igdb-game-catalog-service", url = "https://api-v3.igdb.com/games")
+@FeignClient(name = "igdb-game-catalog-service", url = "https://api.igdb.com/v4/games", configuration = IgdbGameCatalogServiceClientConfiguration.class)
 public interface IgdbGameCatalogServiceClient {
 
 	@PostMapping
